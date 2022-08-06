@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+
+    <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ path('app_front') }}">Symfony 6</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('wiki_index') }}">Wiki</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('wiki_add') }}"><i class="fa fa-fw fa-plus"></i>Add Wiki</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {% block container %}
+        <main class="container  d-flex flex-row">
+          <div class="col-2 xp-2">
+            {% block sidebar %}{% endblock sidebar %}
+          </div>
+          <div class="col p-3" id="content">
+            {% block submenu %}{% endblock %}
+            {% block body %}{% endblock %}
+          </div>
+        </main>
+      {% endblock container %}
+
+        {% block javascripts %}
+          {{ encore_entry_script_tags('app') }}
+          {% block scripts_custom %} {% endblock %}
+        {% endblock %}
+    </body>
+</html>
