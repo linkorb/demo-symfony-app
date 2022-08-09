@@ -1,0 +1,18 @@
+@import "~bootswatch/dist/superhero/variables";
+
+//$primary: #800080;
+// $link-color: "#400040" !default;
+
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/dist/superhero/bootswatch";
+
+
+.buttonbox {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+body {
+  overflow-y: scroll; /* Show vertical scrollbar */
+}

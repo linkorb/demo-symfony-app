@@ -22,20 +22,43 @@
       "role": "Developer"
     }
   ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.packagist.com/linkorb"
+    },
+    {
+      "packagist.org": false
+    }
+  ],
   "require": {
     "php": ">=8.1",
     "ext-ctype": "*",
     "ext-iconv": "*",
+    "doctrine/doctrine-bundle": "^2.7",
+    "doctrine/doctrine-migrations-bundle": "^3.2",
+    "doctrine/orm": "^2.12",
+    "hautelook/alice-bundle": "^2.11",
+    "linkorb/wiki-bundle": "^1.4",
     "symfony/console": "6.1.*",
     "symfony/dotenv": "6.1.*",
     "symfony/flex": "^2",
+    "symfony/form": "6.1.*",
     "symfony/framework-bundle": "6.1.*",
+    "symfony/monolog-bundle": "^3.0",
+    "symfony/proxy-manager-bridge": "6.1.*",
     "symfony/runtime": "6.1.*",
+    "symfony/twig-bundle": "6.1.*",
+    "symfony/validator": "6.1.*",
     "symfony/webpack-encore-bundle": "^1.0",
-    "symfony/yaml": "6.1.*"
+    "symfony/yaml": "6.1.*",
+    "twig/extra-bundle": "^2.12|^3.0",
+    "twig/twig": "^2.12|^3.0"
   },
   "require-dev": {
-    "symfony/maker-bundle": "^1.45"
+    "symfony/maker-bundle": "^1.45",
+    "symfony/stopwatch": "6.1.*",
+    "symfony/web-profiler-bundle": "6.1.*"
   },
   "config": {
     "allow-plugins": {

@@ -1,0 +1,3 @@
+wiki_bundle:
+  resource: '@WikiBundle/Controller'
+  type: annotation
