@@ -22,3 +22,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Locator\FixturesCustomOrderFilesLocator:
+        arguments:
+            - '@hautelook_alice.locator.environmentless'    # Decorates the currently used file locator
+
+    # Replaces the default file locator used
+    hautelook_alice.locator: '@App\Locator\FixturesCustomOrderFilesLocator'

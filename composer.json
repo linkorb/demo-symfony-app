@@ -38,6 +38,7 @@
     "doctrine/doctrine-bundle": "^2.7",
     "doctrine/doctrine-migrations-bundle": "^3.2",
     "doctrine/orm": "^2.12",
+    "hautelook/alice-bundle": "^2.11",
     "linkorb/wiki-bundle": "^1.4",
     "symfony/console": "6.1.*",
     "symfony/dotenv": "6.1.*",

@@ -1,0 +1,4 @@
+include:
+  - wiki.yaml
+  - wiki_page.yaml
+  - wiki_event.yaml
