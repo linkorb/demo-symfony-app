@@ -3,3 +3,5 @@ LinkORB\Bundle\WikiBundle\Entity\Wiki:
   random_wiki_{1..3}:
     name (unique): <randomElement(['test1-wiki', 'test2-wiki', 'test3-wiki'])>
     description: <text()>
+    read_role: 'PUBLIC_ACCESS'
+    write_role: 'PUBLIC_ACCESS'
