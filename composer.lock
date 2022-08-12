@@ -2198,16 +2198,16 @@
         },
         {
             "name": "linkorb/wiki-bundle",
-            "version": "v1.4.3",
+            "version": "v1.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/linkorb/wiki-bundle.git",
-                "reference": "f55dacda6328a77e4f9db53d4f58c25c5a8c60a4"
+                "reference": "0c5072a06f6a5b13de0d86c4234f80c82d7d814b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/linkorb/wiki-bundle/zipball/f55dacda6328a77e4f9db53d4f58c25c5a8c60a4",
-                "reference": "f55dacda6328a77e4f9db53d4f58c25c5a8c60a4",
+                "url": "https://api.github.com/repos/linkorb/wiki-bundle/zipball/0c5072a06f6a5b13de0d86c4234f80c82d7d814b",
+                "reference": "0c5072a06f6a5b13de0d86c4234f80c82d7d814b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2254,10 +2254,10 @@
                 "linkorb"
             ],
             "support": {
-                "source": "https://github.com/linkorb/wiki-bundle/tree/v1.4.3",
+                "source": "https://github.com/linkorb/wiki-bundle/tree/v1.4.4",
                 "issues": "https://github.com/linkorb/wiki-bundle/issues"
             },
-            "time": "2022-08-06T12:39:02+00:00"
+            "time": "2022-08-12T08:18:02+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8190,5 +8190,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
