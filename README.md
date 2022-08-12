@@ -39,7 +39,11 @@ bin/console doctrine:schema:update --force
 ```
 
 ## setup 6: Generate fixture data
-Run command to genrate fixture(fake data)
+
+* Use ["hautelook/alice-bundle](https://github.com/theofidry/AliceBundle) for generate fixture/fake data.  More information is available on a package README.md.
+* Fixture file(s) contain in a `fixtures/` directory. Load fixtures order set in `fixtures/all.yaml`.  Code locate in `src/Locator/FixturesCustomOrderFilesLocator.php` file.  More details avialable on ["hautelook/alice-bundle](https://github.com/theofidry/AliceBundle/blob/master/doc/advanced-usage.md#load-fixtures-in-a-specific-order)
+
+* Run command to genrate fixture(fake data)
 ```
 bin/console hautelook:fixtures:load
 ```
@@ -63,11 +67,9 @@ cp .env  env.local
 # Database setup: create databse and tables
 bin/console doctrine:database:create
 bin/console doctrine:schema:update --force
-
-# Run command to genrate fixture(fake data)
-bin/console hautelook:fixtures:load
-# Press 'y' for furthure process.
 ```
+
+Check [setup 6: Generate fixture data](https://github.com/linkorb/demo-symfony-app#setup-6-generate-fixture-data)
 
 # Enjoy :)
 
