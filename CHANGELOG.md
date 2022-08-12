@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/linkorb/demo-symfony-app/compare/v1.0.0...v1.1.0) (2022-08-12)
+
+
+### Features
+
+*  intial setup [#6495](https://github.com/linkorb/demo-symfony-app/issues/6495) ([d1640ac](https://github.com/linkorb/demo-symfony-app/commit/d1640ac1d07588504b24343c6f2b6394033900e6))
+* initial setup [#6495](https://github.com/linkorb/demo-symfony-app/issues/6495) ([b630e4a](https://github.com/linkorb/demo-symfony-app/commit/b630e4a309bbd3e30e43b77f8c0610acef5e9cee))
+
 # 1.0.0 (2022-08-09)
 
 
