@@ -1,7 +1,7 @@
 {
   "name": "linkorb/demo-symfony-app",
   "description": "Symfony 6 project",
-  "homepage": "https://github.com/linkorb/cardbase",
+  "homepage": "https://github.com/linkorb/demo-symfony-app",
   "type": "application",
   "license": "proprietary",
   "minimum-stability": "stable",
