@@ -37,7 +37,7 @@ final class FixturesCustomOrderFilesLocator implements FixtureLocatorInterface
             $arr = explode('/', $filename);
             $file = end($arr);
 
-            if (fnmatch('all.y?ml', $file)) {
+            if (preg_match('/all.ya?ml/i', $file)) {
                 $orderfiles[] = $filename;
             }
         }
