@@ -1,3 +1,10 @@
+## [1.3.6](https://github.com/linkorb/demo-symfony-app/compare/v1.3.5...v1.3.6) (2022-11-15)
+
+
+### Bug Fixes
+
+* envvars in Helm Chart ([84c3b9b](https://github.com/linkorb/demo-symfony-app/commit/84c3b9b3dd1bf4c792f261d558c59f2525b438ae))
+
 ## [1.3.5](https://github.com/linkorb/demo-symfony-app/compare/v1.3.4...v1.3.5) (2022-11-15)
 
 
