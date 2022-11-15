@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/linkorb/demo-symfony-app/compare/v1.3.2...v1.3.3) (2022-11-15)
+
+
+### Bug Fixes
+
+* bump appVersion in Chart.yaml ([40270de](https://github.com/linkorb/demo-symfony-app/commit/40270de8c4a9714988a41ed5d8fb5d62640081f5))
+
 ## [1.3.2](https://github.com/linkorb/demo-symfony-app/compare/v1.3.1...v1.3.2) (2022-11-15)
 
 
