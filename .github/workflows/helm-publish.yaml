@@ -20,6 +20,9 @@ jobs:
         fetch-depth: 0
 
     - name: Update app verion in Chart.yaml
+      run: TAG=`git tag | tail -n1` && sed -i -e "s/version.*/version\:\ "${TAG:1}"/g" helm-chart/Chart.yaml
+
+    - name: Update chart verion in Chart.yaml
       run: TAG=`git tag | tail -n1` && sed -i -e "s/.*appVersion.*/appVersion\:\ "${TAG:1}"/g" helm-chart/Chart.yaml
 
     #TODO: commit changes to Chart.yaml??
