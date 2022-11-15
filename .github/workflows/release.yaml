@@ -88,7 +88,7 @@ jobs:
       run: "sed -i s/REPOPLACEHOLDER/${{ env.CI_REPOSITORY_NAME }}/ .releaserc"
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: 'lts/*'
 
