@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/linkorb/demo-symfony-app/compare/v1.1.1...v1.1.2) (2022-11-15)
+
+
+### Bug Fixes
+
+* specify versions ([eb00461](https://github.com/linkorb/demo-symfony-app/commit/eb00461d6a4b7909273a76c17b8df596c3b188f0))
+* use latest versions of actions ([0b1f1c7](https://github.com/linkorb/demo-symfony-app/commit/0b1f1c78c801bd3853fd406caed2e634be547064))
+
 ## [1.1.1](https://github.com/linkorb/demo-symfony-app/compare/v1.1.0...v1.1.1) (2022-11-15)
 
 
