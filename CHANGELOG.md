@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/linkorb/demo-symfony-app/compare/v1.1.3...v1.2.0) (2022-11-15)
+
+
+### Features
+
+* adds Helm chart ([c825d5c](https://github.com/linkorb/demo-symfony-app/commit/c825d5c80a2a26afbce0dc4f65d550ec5b1e2d4f))
+
 ## [1.1.3](https://github.com/linkorb/demo-symfony-app/compare/v1.1.2...v1.1.3) (2022-11-15)
 
 
