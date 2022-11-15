@@ -1,6 +1,7 @@
 name: HelmPublish
 # this publishes the Helm chart to the Chart Museum
 # in the future this should also update Chart versions
+# this workflow should only be called when a release/tag has been created
 
 on:
   workflow_dispatch:
@@ -18,44 +19,27 @@ jobs:
       with:
         fetch-depth: 0
 
-    - uses: dorny/paths-filter@v2
-      id: changes
-      with:
-        filters: |
-          weconnect:
-            - 'helm-chart/**'
-
     - name: Update app verion in Chart.yaml
-      if: steps.changes.outputs.helm == 'true'
       run: TAG=`git tag | tail -n1` && sed -i -e "s/.*appVersion.*/appVersion\:\ "${TAG:1}"/g" helm-chart/Chart.yaml
 
     #TODO: commit changes to Chart.yaml??
 
     - name: Install Helm
-      if: steps.changes.outputs.helm == 'true'
       uses: azure/setup-helm@v1
 
-#    - name: Set repo name in .releaserc
-#      run: "sed -i s//0.1.0/ helm-chart/Chart.yaml"
-
     - name: Add Bitnami Helm repo
-      if: steps.changes.outputs.helm == 'true'
       run: helm repo add bitnami https://charts.bitnami.com/bitnami
 
     - name: Update Helm repos
-      if: steps.changes.outputs.helm == 'true'
       run: helm repo update
 
     - name: Install dependencies for Helm chart
-      if: steps.changes.outputs.helm == 'true'
       run: cd helm-chart && helm dependency update
 
     - name: Package Helm chart
-      if: steps.changes.outputs.helm == 'true'
       run: helm package helm-chart/
 
     - name: Upload packaged Helm chart to Museum
-      if: steps.changes.outputs.helm == 'true'
       run: curl -u "github:${{ secrets.CHARTMUSEUMPASS }}" --data-binary "@`ls -1 *.tgz | head -n1`" https://charts.linkorb.com/api/charts
 
   deploy-test:
