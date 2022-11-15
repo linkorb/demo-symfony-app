@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/linkorb/demo-symfony-app/compare/v1.3.4...v1.3.5) (2022-11-15)
+
+
+### Bug Fixes
+
+* use newer Helm version ([5cfc3b4](https://github.com/linkorb/demo-symfony-app/commit/5cfc3b4b785a25e2cf58b4a7e75f2b951573ab65))
+
 ## [1.3.4](https://github.com/linkorb/demo-symfony-app/compare/v1.3.3...v1.3.4) (2022-11-15)
 
 
