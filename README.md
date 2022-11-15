@@ -1,6 +1,8 @@
 # demo-symfony-app
 Symfony 6: Demo application
 
+Build status: [![Release](https://github.com/linkorb/demo-symfony-app/actions/workflows/release.yaml/badge.svg)](https://github.com/linkorb/demo-symfony-app/actions/workflows/release.yaml)
+
 # Setup project (Without Docker)
 
 ## Step 1: Download github repository.
