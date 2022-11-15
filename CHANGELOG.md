@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/linkorb/demo-symfony-app/compare/v1.3.0...v1.3.1) (2022-11-15)
+
+
+### Bug Fixes
+
+* audit workflow is still wip ([08dc7b1](https://github.com/linkorb/demo-symfony-app/commit/08dc7b10293a5fb27ec8161ee2ddd3ea5a171ad4))
+* update actions to newer node versions ([850029e](https://github.com/linkorb/demo-symfony-app/commit/850029eda159c35b93681a9e9f5663583596dade))
+
 # [1.3.0](https://github.com/linkorb/demo-symfony-app/compare/v1.2.0...v1.3.0) (2022-11-15)
 
 
