@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/linkorb/demo-symfony-app/compare/v1.3.1...v1.3.2) (2022-11-15)
+
+
+### Bug Fixes
+
+* deploy with changed app version ([02508a3](https://github.com/linkorb/demo-symfony-app/commit/02508a3f14b594e0eb3cad909c9af5fd25c753b8))
+
 ## [1.3.1](https://github.com/linkorb/demo-symfony-app/compare/v1.3.0...v1.3.1) (2022-11-15)
 
 
