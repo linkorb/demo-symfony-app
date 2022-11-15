@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/linkorb/demo-symfony-app/compare/v1.3.3...v1.3.4) (2022-11-15)
+
+
+### Bug Fixes
+
+* always publish Helm chart when WF is called ([68df10e](https://github.com/linkorb/demo-symfony-app/commit/68df10ec46793c14923b6d54ffca817dc407b26e))
+
 ## [1.3.3](https://github.com/linkorb/demo-symfony-app/compare/v1.3.2...v1.3.3) (2022-11-15)
 
 
