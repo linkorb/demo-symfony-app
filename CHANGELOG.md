@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/linkorb/demo-symfony-app/compare/v1.3.6...v1.3.7) (2022-11-15)
+
+
+### Bug Fixes
+
+* also update Chart version ([6abad72](https://github.com/linkorb/demo-symfony-app/commit/6abad723c6bb30c9296c233a414bac87bbbe71b6))
+
 ## [1.3.6](https://github.com/linkorb/demo-symfony-app/compare/v1.3.5...v1.3.6) (2022-11-15)
 
 
