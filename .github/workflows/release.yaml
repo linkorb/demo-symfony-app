@@ -13,9 +13,9 @@ jobs:
 
     steps:
     - name: GitHub Environment Variables Action
-      uses: FranzDiebold/github-env-vars-action@v2
+      uses: FranzDiebold/github-env-vars-action@latest
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@latest
       with:
         fetch-depth: 0
 
