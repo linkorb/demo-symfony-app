@@ -18,8 +18,8 @@ jobs:
         with:
           repository: reposaur/policy
 
-      - name: Setup Reposaur
-        uses: reposaur/repo-audit-action@main
+#      - name: Setup Reposaur
+#        uses: reposaur/repo-audit-action@main
 
 #      - name: Execute Policies
 #        run: |
