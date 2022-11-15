@@ -16,60 +16,23 @@ jobs:
       with:
         fetch-depth: 0
 
-    - uses: dorny/paths-filter@v2
-      id: changes
-      with:
-        filters: |
-          weconnect:
-            - 'helm-chart/**'
-
     - name: Install Helm
-      if: steps.changes.outputs.helm == 'true'
-      uses: azure/setup-helm@v1
-
-#    - name: Set repo name in .releaserc
-#      run: "sed -i s//0.1.0/ helm-chart/Chart.yaml"
-
-    - name: Add Bitnami Helm repo
-      if: steps.changes.outputs.helm == 'true'
-      run: helm repo add bitnami https://charts.bitnami.com/bitnami
-
-    - name: Update Helm repos
-      if: steps.changes.outputs.helm == 'true'
-      run: helm repo update
-
-    - name: Install dependencies for Helm chart
-      if: steps.changes.outputs.helm == 'true'
-      run: cd helm-chart && helm dependency update
-
-    - name: Package Helm chart
-      if: steps.changes.outputs.helm == 'true'
-      run: helm package helm-chart/
-
-    - name: Upload packaged Helm chart to Museum
-      if: steps.changes.outputs.helm == 'true'
-      run: curl -u "github:${{ secrets.CHARTMUSEUMPASS }}" --data-binary "@`ls -1 *.tgz | head -n1`" https://charts.linkorb.com/api/charts
+      uses: azure/setup-helm@v3
 
     - name: Add LinkORB Helm repo
-      if: steps.changes.outputs.helm == 'true'
       run: helm repo add linkorb https://charts.linkorb.com
 
     - name: Update Helm repos
-      if: steps.changes.outputs.helm == 'true'
       run: helm repo update
 
     - name: Create kube dir for credentials
-      if: steps.changes.outputs.helm == 'true'
       run: mkdir -p $HOME/.kube
 
     - name: Save k8s credentials
-      if: steps.changes.outputs.helm == 'true'
       run: echo "${{ secrets.K8SSTAGINGCERT }}" | base64 -d > $HOME/.kube/config
 
     - name: Deploy new version
-      if: steps.changes.outputs.helm == 'true'
-      run: helm upgrade -f helm-chart/values.test.yaml linkorb linkorb/form-server -n xform-perinatologie-nl
+      run: helm upgrade -f helm-chart/values.test.yaml linkorb linkorb/${{ env.CI_REPOSITORY_NAME }} -n ${{ env.CI_REPOSITORY_NAME }}
 
     - name: Shred k3s credentials
-      if: steps.changes.outputs.helm == 'true'
       run: shred $HOME/.kube/config

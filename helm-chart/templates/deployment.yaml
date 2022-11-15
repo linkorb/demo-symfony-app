@@ -33,6 +33,11 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: envvars
+            readOnly: false
+            mountPath: /app/.env
+            subPath: ".env"
           ports:
             - name: http
               containerPort: 80
@@ -41,12 +46,20 @@ spec:
             httpGet:
               path: /
               port: http
+            failureThreshold: 100
           readinessProbe:
             httpGet:
               path: /
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: envvars
+          configMap:
+            name: envvars
+            items:
+            - key: .env
+              path: .env
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
