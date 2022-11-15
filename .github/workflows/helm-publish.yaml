@@ -25,6 +25,12 @@ jobs:
           weconnect:
             - 'helm-chart/**'
 
+    - name: Update app verion in Chart.yaml
+      if: steps.changes.outputs.helm == 'true'
+      run: TAG=`git tag | tail -n1` && sed -i -e "s/.*appVersion.*/appVersion\:\ "${TAG:1}"/g" helm-chart/Chart.yaml
+
+    #TODO: commit changes to Chart.yaml??
+
     - name: Install Helm
       if: steps.changes.outputs.helm == 'true'
       uses: azure/setup-helm@v1
