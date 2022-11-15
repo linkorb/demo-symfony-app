@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/linkorb/demo-symfony-app/compare/v1.1.0...v1.1.1) (2022-11-15)
+
+
+### Bug Fixes
+
+* delete cleanup workflow ([58f2c10](https://github.com/linkorb/demo-symfony-app/commit/58f2c107dfe0d28117956256bbff73de7b66f1f4))
+
 # [1.1.0](https://github.com/linkorb/demo-symfony-app/compare/v1.0.0...v1.1.0) (2022-08-12)
 
 
