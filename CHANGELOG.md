@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/linkorb/demo-symfony-app/compare/v1.2.0...v1.3.0) (2022-11-15)
+
+
+### Bug Fixes
+
+* let workflows call each other ([cb03565](https://github.com/linkorb/demo-symfony-app/commit/cb0356543f275dcda85d09ef64f41e1d10b152dc))
+
+
+### Features
+
+* new Helm deploy structure ([8e323ef](https://github.com/linkorb/demo-symfony-app/commit/8e323ef02d81ead59848bd2ad6d394281680b0ef))
+
 # [1.2.0](https://github.com/linkorb/demo-symfony-app/compare/v1.1.3...v1.2.0) (2022-11-15)
 
 
