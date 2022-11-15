@@ -1,7 +1,10 @@
 name: HelmPublish
+# this publishes the Helm chart to the Chart Museum
+# in the future this should also update Chart versions
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   build:
