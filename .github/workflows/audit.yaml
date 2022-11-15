@@ -1,7 +1,12 @@
 name: Audit Pull
 
 on:
-  push:
+  workflow_dispatch:
+  #push:
+  #  branches:
+  #  - master
+  #  - main
+
 
 jobs:
   audit:

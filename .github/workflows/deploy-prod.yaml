@@ -1,0 +1,14 @@
+name: HelmProdDeploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux, x64]
+
+    steps:
+    - name: GitHub Environment Variables Action
+      uses: FranzDiebold/github-env-vars-action@v2.7.0
+
+# there is no production, get the lastest workflow from github-actions-examples

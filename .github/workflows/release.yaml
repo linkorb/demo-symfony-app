@@ -123,3 +123,8 @@ jobs:
         skip-tags: latest
         untagged-only: false
         token: ${{ secrets.DOCKER_PASSWORD }}
+
+  helm-publish:
+    uses: ./.github/workflows/helm-publish.yaml
+    needs: build
+    secrets: inherit
