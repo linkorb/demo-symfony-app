@@ -5,7 +5,7 @@ on:
   workflow_call:
 
 jobs:
-  build:
+  deploy:
     runs-on: [self-hosted, linux, x64]
 
     steps:
@@ -67,4 +67,3 @@ jobs:
 
     - name: Shred k3s credentials
       run: shred $HOME/.kube/config
-

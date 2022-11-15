@@ -1,11 +1,8 @@
 name: Release
 
 on:
-  push:
-    branches:
-    - master
-    - main
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   build:
@@ -20,7 +17,7 @@ jobs:
         fetch-depth: 0
 
     - name: write semantic-release config
-      uses: DamianReeves/write-file-action@v1.0
+      uses: DamianReeves/write-file-action@master
       with:
         path: package.json
         contents: |
@@ -45,7 +42,7 @@ jobs:
         write-mode: overwrite
 
     - name: write semantic-release config
-      uses: DamianReeves/write-file-action@v1.0
+      uses: DamianReeves/write-file-action@master
       with:
         path: .releaserc
         contents: |

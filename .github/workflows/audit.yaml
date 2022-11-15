@@ -1,12 +1,12 @@
-name: Audit Pull
+name: AuditAndLint
 
 on:
   workflow_dispatch:
-  #push:
-  #  branches:
-  #  - master
-  #  - main
-
+  workflow_call:
+  push:
+    branches:
+    - master
+    - main
 
 jobs:
   audit:
@@ -21,16 +21,21 @@ jobs:
       - name: Setup Reposaur
         uses: reposaur/repo-audit-action@main
 
-      - name: Execute Policies
-        run: |
-          echo "${{ github.event }}" \
-          | jq -r '.pull_request' \
-          | rsr exec > report.sarif
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+#      - name: Execute Policies
+#        run: |
+#          echo "${{ github.event }}" \
+#          | jq -r '.pull_request' \
+#          | rsr exec > report.sarif
+#        env:
+#          GITHUB_TOKEN: ${{ github.token }}
+#
+#      - name: Upload Report
+#        uses: github/codeql-action/upload-sarif@v2
+#        with:
+#          sarif_file: report.sarif
+#          category: reposaur
 
-      - name: Upload Report
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: report.sarif
-          category: reposaur
+  release:
+    uses: ./.github/workflows/release.yaml
+    needs: audit
+    secrets: inherit
