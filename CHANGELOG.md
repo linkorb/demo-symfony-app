@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/linkorb/demo-symfony-app/compare/v1.1.2...v1.1.3) (2022-11-15)
+
+
+### Bug Fixes
+
+* disable encore ([420723a](https://github.com/linkorb/demo-symfony-app/commit/420723a94eb8c46ef47710ae4cdaec41cc839bdc))
+
 ## [1.1.2](https://github.com/linkorb/demo-symfony-app/compare/v1.1.1...v1.1.2) (2022-11-15)
 
 
