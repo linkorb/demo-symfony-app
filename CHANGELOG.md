@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/linkorb/demo-symfony-app/compare/v1.3.7...v1.4.0) (2022-11-21)
+
+
+### Features
+
+* setup devcontainer with mariadb ([086c1b6](https://github.com/linkorb/demo-symfony-app/commit/086c1b6eb6095c8f72fc953bc9fcdb80cbd80f94))
+
 ## [1.3.7](https://github.com/linkorb/demo-symfony-app/compare/v1.3.6...v1.3.7) (2022-11-15)
 
 
