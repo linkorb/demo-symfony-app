@@ -1,5 +1,25 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/php:8",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+
+  // For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
+  "forwardPorts": [8080, 3306],
+  "remoteUser": "vscode",
+
+  "customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {		
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"xdebug.php-debug",
+				"bmewburn.vscode-intelephense-client",
+				"mrmlnc.vscode-apache"
+			]
+		}
+	},
+  
+
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/docker-in-docker:1": {},
