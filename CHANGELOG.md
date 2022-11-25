@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/linkorb/demo-symfony-app/compare/v1.4.0...v1.4.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* fixtures command not found in prod [#6495](https://github.com/linkorb/demo-symfony-app/issues/6495) ([5ceea96](https://github.com/linkorb/demo-symfony-app/commit/5ceea96c71f52dcadb790eae84bfdd406a656737))
+
 # [1.4.0](https://github.com/linkorb/demo-symfony-app/compare/v1.3.7...v1.4.0) (2022-11-21)
 
 
