@@ -47,7 +47,7 @@ bin/console doctrine:schema:update --force
 
 * Run command to genrate fixture(fake data)
 ```
-bin/console hautelook:fixtures:load
+bin/console hautelook:fixtures:load --env=dev
 ```
 Press 'y' for furthure process.
 
