@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/linkorb/demo-symfony-app/compare/v1.4.1...v1.4.2) (2023-01-23)
+
+
+### Bug Fixes
+
+* replace GAWF [#6495](https://github.com/linkorb/demo-symfony-app/issues/6495) ([85ec41b](https://github.com/linkorb/demo-symfony-app/commit/85ec41bc3490c8e4de1e87dce5aaaad73e6a102e))
+
 ## [1.4.1](https://github.com/linkorb/demo-symfony-app/compare/v1.4.0...v1.4.1) (2022-11-25)
 
 
