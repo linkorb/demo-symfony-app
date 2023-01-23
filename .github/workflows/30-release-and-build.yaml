@@ -10,14 +10,14 @@ jobs:
 
     steps:
     - name: GitHub Environment Variables Action
-      uses: FranzDiebold/github-env-vars-action@v2.7.0
+      uses: FranzDiebold/github-env-vars-action@v2
 
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
     - name: write semantic-release config
-      uses: DamianReeves/write-file-action@master
+      uses: DamianReeves/write-file-action@v1.2
       with:
         path: package.json
         contents: |
@@ -42,7 +42,7 @@ jobs:
         write-mode: overwrite
 
     - name: write semantic-release config
-      uses: DamianReeves/write-file-action@master
+      uses: DamianReeves/write-file-action@v1.2
       with:
         path: .releaserc
         contents: |
@@ -72,7 +72,7 @@ jobs:
                 ],
                 ["@semantic-release/exec", {
                     "prepareCmd": "echo ${ process.env.DOCKER_PASSWORD } | docker login ghcr.io --username automation@linkorb.com --password-stdin",
-                    "publishCmd": "docker build . --build-arg PACKAGIST_USER='token'
+                    "publishCmd": "git checkout package.json; git checkout package-lock.json; docker build . --build-arg PACKAGIST_USER='token'
                                       --build-arg PACKAGIST_TOKEN=${ process.env.PACKAGIST_TOKEN}
                                      --label org.opencontainers.image.source=https://github.com/linkorb/${ process.env.CI_REPOSITORY_NAME}
                                      --tag ghcr.io/linkorb/${ process.env.CI_REPOSITORY_NAME }:${nextRelease.version} --file Dockerfile &&
@@ -84,6 +84,7 @@ jobs:
           }
         write-mode: overwrite
 
+
     - name: Set repo name in .releaserc
       run: "sed -i s/REPOPLACEHOLDER/${{ env.CI_REPOSITORY_NAME }}/ .releaserc"
 
@@ -92,14 +93,8 @@ jobs:
       with:
         node-version: 'lts/*'
 
-#    - name: Remove package-lock.json
-#      run: "rm package-lock.json"
-
     - name: Install dependencies for release
       run: npm install
-
-#    - name: Restore package.json from repository if possible
-#      run: "git checkout package.json; git checkout package-lock.json; exit 0"
 
     - name: Release
       run: npx semantic-release
@@ -108,20 +103,3 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
         CI_REPOSITORY_NAME: ${{ env.CI_REPOSITORY_NAME }}
-
-    - name: Delete old unused container images
-      uses: snok/container-retention-policy@v1
-      with:
-        image-names: "${{ env.CI_REPOSITORY_NAME }}"
-        cut-off: A month ago UTC
-        account-type: org
-        org-name: linkorb
-        keep-at-least: 10
-        skip-tags: latest
-        untagged-only: false
-        token: ${{ secrets.DOCKER_PASSWORD }}
-
-  helm-publish:
-    uses: ./.github/workflows/helm-publish.yaml
-    needs: build
-    secrets: inherit
