@@ -83,3 +83,5 @@ Check [setup 6: Generate fixture data](https://github.com/linkorb/demo-symfony-a
 
 # Enjoy :)
 
+More info: https://engineering.linkorb.com
+
