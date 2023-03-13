@@ -26,7 +26,7 @@ jobs:
       id: get-latest-tag
       with:
         semver_only: true
-        
+
     - name: Remove v from release
       if: steps.check_files.outputs.files_exists == 'true'
       run: |
@@ -66,6 +66,6 @@ jobs:
       if: steps.check_files.outputs.files_exists == 'true'
       run: helm package helm-chart/
 
-    - name: Upload packaged Helm chart to Museum
+    - name: Upload packaged Chart - if this fails give repo permission to chartmuseum-pass org variable
       if: steps.check_files.outputs.files_exists == 'true'
-      run: curl -u "github:${{ secrets.CHARTMUSEUMPASS }}" --data-binary "@`ls -1 *.tgz | head -n1`" https://charts.linkorb.com/api/charts
+      run: curl --silent --fail --show-error -u "github:${{ secrets.CHARTMUSEUMPASS }}" --data-binary "@`ls -1 *.tgz | head -n1`" https://charts.linkorb.com/api/charts

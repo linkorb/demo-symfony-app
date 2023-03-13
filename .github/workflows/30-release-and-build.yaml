@@ -96,7 +96,7 @@ jobs:
     - name: Install dependencies for release
       run: npm install
 
-    - name: Release
+    - name: Create release and push container image
       run: npx semantic-release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

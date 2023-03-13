@@ -1,87 +1,43 @@
-# demo-symfony-app
+demo-symfony-app
+============
 
-Symfony 6: Demo application
+Build status: [![Release](https://github.com/linkorb/demo-symfony-app/actions/workflows/30-release-and-build.yaml/badge.svg)](https://github.com/linkorb/demo-symfony-app/actions/workflows/30-release-and-build.yaml)
 
-Build status: [![Release](https://github.com/linkorb/demo-symfony-app/actions/workflows/release.yaml/badge.svg)](https://github.com/linkorb/demo-symfony-app/actions/workflows/release.yaml)
+Demo application for best practices used in Symfony projects at LinkORB
 
-# Setup project (Without Docker)
+## Installation
 
-## Step 1: Download github repository.
+### Prerequisites
 
-``sh
-git@github.com:linkorb/demo-symfony-app.git
-```
+* Ensure [composer](https://getcomposer.org/) is installed
+* Ensure [npm](https://www.npmjs.com/) is installed
 
-## Step 2: Composer
+### Steps
 
-```sh
-# install packages
+```bash
+# Clone the repository
+git clone git@github.com:linkorb/demo-symfony-app.git
+cd demo-symfony-app
+
+# Install PHP dependencies
 composer install
-```
-Project requires you to have Composer installed globally, as explained
-in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
-of the Composer documentation.
 
-## Step 3: configuration
-Copy `.env` to `.env.local` and configure paramaters like 'DATABASE_URL'.
+# Install node dependencies
+npm install
 
-```sh
-cp .env  env.local
-```
-## Step 4: NPM Packages
-npm packages install and build it.
-
-```sh
-npm i
-node_modules/.bin/encore production && rm -rf node_modules
-```
-## Step 5: Database setup
-Run command to create database and tables
-
-```sh
-bin/console doctrine:database:create
-bin/console doctrine:schema:update --force
+# Generate the assets
+node_modules/.bin/encore prod
 ```
 
-## setup 6: Generate fixture data
+## TODO
 
-* Use ["hautelook/alice-bundle](https://github.com/theofidry/AliceBundle) for generate fixture/fake data.  More information is available on a package README.md.
-* Fixture file(s) contain in a `fixtures/` directory. Load fixtures order set in `fixtures/all.yaml`.  Code locate in `src/Locator/FixturesCustomOrderFilesLocator.php` file.  More details avialable on ["hautelook/alice-bundle](https://github.com/theofidry/AliceBundle/blob/master/doc/advanced-usage.md#load-fixtures-in-a-specific-order)
-
-* Run command to genrate fixture(fake data)
-
-```sh
-bin/console hautelook:fixtures:load --env=dev
-```
-
-Press 'y' for furthure process.
+- [x] Add repo.yaml
+- [ ] Add devcontainer configuration
 
 
-# Setup project use Docker
-Setup project use Docker file. Use docker/docker-compose to create image and container.
+## Brought to you by the LinkORB Engineering team
 
-```sh
- docker build .
-```
+<img src="http://www.linkorb.com/d/meta/tier1/images/linkorbengineering-logo.png" width="200px" /><br />
+Check out our other projects at [linkorb.com/engineering](http://www.linkorb.com/engineering).
 
-## step 1: configuration
-Execute command in running container.
-
-```sh
-# Open running container prompt
-docker exec -it  container-name bash
-
-# Copy `.env` to `.env.local` and configure paramaters like 'DATABASE_URL'.
-cp .env  env.local
-
-# Database setup: create databse and tables
-bin/console doctrine:database:create
-bin/console doctrine:schema:update --force
-```
-
-Check [setup 6: Generate fixture data](https://github.com/linkorb/demo-symfony-app#setup-6-generate-fixture-data)
-
-# Enjoy :)
-
-More info: https://engineering.linkorb.com
-
+By the way, we're hiring!

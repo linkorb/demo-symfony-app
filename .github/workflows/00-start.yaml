@@ -1,4 +1,4 @@
-name: BuildContainer
+name: RunGithubActionsWorkflows
 
 # triggers on master and main commits and merges
 # schedule/cron is optional
@@ -7,13 +7,12 @@ name: BuildContainer
 
 on:
   push:
-    branches:
-    - master
-    - main
-  #schedule:
-  #  - cron: * * * * *
+    branches: [master, main]
   workflow_dispatch:
   workflow_call:
+  pull_request:
+    branches: [justheretomakegithubhappy]
+    types: [opened, edited, reopened, synchronize]
 
 jobs:
   review:

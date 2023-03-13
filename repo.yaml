@@ -1,0 +1,36 @@
+name: demo-symfony-app
+description: awesome demo
+license: mit
+type: application
+description: Demo application for best practices used in Symfony projects at LinkORB
+visibility: private
+website: https://github.com/linkorb/demo-symfony-app
+
+codeowners:
+  - pattern: "*"
+    owners:
+      - "@jfaassen"
+  - pattern: "src/*"
+    owners:
+      - "@prajapati-kaushik"
+
+todo:
+  - text: "Add repo.yaml"
+    state: "closed"
+  - text: "Add devcontainer configuration"
+    state: "open"
+
+github:
+  topics:
+    - symfony-6
+    - linkorb
+  features:
+    wiki: false
+    issues: false
+
+docker:
+  from: ghcr.io/linkorb/php-docker-base:php8
+
+php:
+  private-packagist: true
+  webpack-encore: true

@@ -8,7 +8,7 @@ on:
     types: [opened, edited, reopened, synchronize]
   pull_request_target:
     types: [opened, edited, reopened, synchronize]
-      
+
 jobs:
   check-for-cc:
     runs-on: ubuntu-latest
@@ -17,13 +17,15 @@ jobs:
         uses: actions/checkout@v3
 
       # interesting alternative: https://github.com/cocogitto/cocogitto
-      - uses: webiny/action-conventional-commits@v1.1.0
+      - name: Conventional commit checker
+        uses: webiny/action-conventional-commits@v1.1.0
+        if: ${{ github.event_name != 'workflow_dispatch' }}
 
-      - name: Extra conventional commits check
-        uses: gsactions/commit-message-checker@v2
-        with:
-          pattern: '^(feat|fix|test|docs|chore|style|refactor|ci|cd):'
-          error: 'You need to start with a conventional commits action.'
+      #- name: Extra conventional commits check
+      #  uses: gsactions/commit-message-checker@v2
+      #  with:
+      #    pattern: '^(feat|fix|test|docs|chore|style|refactor|ci|cd):'
+      #    error: 'You need to start with a conventional commits action.'
 
       - name: Check Card# reference
         uses: gsactions/commit-message-checker@v2
@@ -35,7 +37,8 @@ jobs:
           excludeTitle: 'true' # optional: this excludes the title of a pull request
           checkAllCommitMessages: 'true' # optional: this checks all commits associated with a pull request
           accessToken: ${{ secrets.GITHUB_TOKEN }} # github access token is only required if checkAllCommitMessages is true
-      
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+
       - name: Check Line Length
         uses: gsactions/commit-message-checker@v2
         with:
@@ -45,6 +48,7 @@ jobs:
           excludeTitle: 'true' # optional: this excludes the title of a pull request
           checkAllCommitMessages: 'true' # optional: this checks all commits associated with a pull request
           accessToken: ${{ secrets.GITHUB_TOKEN }} # github access token is only required if checkAllCommitMessages is true
+        if: ${{ github.event_name != 'workflow_dispatch' }}
 
       - name: Check Body Length
         uses: gsactions/commit-message-checker@v2
@@ -55,11 +59,13 @@ jobs:
           excludeTitle: 'true' # optional: this excludes the title of a pull request
           checkAllCommitMessages: 'true' # optional: this checks all commits associated with a pull request
           accessToken: ${{ secrets.GITHUB_TOKEN }} # github access token is only required if checkAllCommitMessages is true
+        if: ${{ github.event_name != 'workflow_dispatch' }}
 
-      - name: Checkout Policy Library
-        uses: actions/checkout@v3
-        with:
-          repository: reposaur/policy
+      #- name: Checkout Policy Library
+      #  uses: actions/checkout@v3
+      #  with:
+      #    repository: reposaur/policy
+      #  if: ${{ github.event_name != 'workflow_dispatch' }}
 
       #- name: Setup Reposaur
       #  uses: reposaur/repo-audit-action@main
