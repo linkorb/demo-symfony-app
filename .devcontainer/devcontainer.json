@@ -1,4 +1,5 @@
 {
+  "postCreateCommand": "echo 'an optional command that will be run by devcontainers after creation'",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
@@ -31,11 +32,7 @@
           ]
       }
   },
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
   "forwardPorts": [8080, 3306],
-  // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "vscode",
-  "postCreateCommand": "cd ansible && ansible-playbook main.yaml"
+  "remoteUser": "vscode"
 }
+

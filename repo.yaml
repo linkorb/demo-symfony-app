@@ -34,3 +34,6 @@ docker:
 php:
   private-packagist: true
   webpack-encore: true
+
+devcontainer:
+  postCreateCommand: "echo 'an optional command that will be run by devcontainers after creation'"
