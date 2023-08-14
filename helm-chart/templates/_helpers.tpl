@@ -1,4 +1,7 @@
 {{/*
+Managed by https://github.com/linkorb/repo-ansible. Manual changes will be overwritten.
+*/}}
+{{/*
 Expand the name of the chart.
 */}}
 {{- define "demo-symfony-app.name" -}}
