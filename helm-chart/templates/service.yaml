@@ -1,9 +1,10 @@
+# Managed by https://github.com/linkorb/repo-ansible. Manual changes will be overwritten.
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "demo-symfony-app.fullname" . }}
+  name: {{ include "[[ repo.name ]].fullname" . }}
   labels:
-    {{- include "demo-symfony-app.labels" . | nindent 4 }}
+    {{- include "[[ repo.name ]].labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +13,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "demo-symfony-app.selectorLabels" . | nindent 4 }}
+    {{- include "[[ repo.name ]].selectorLabels" . | nindent 4 }}

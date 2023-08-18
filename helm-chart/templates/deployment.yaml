@@ -1,16 +1,21 @@
+# Managed by https://github.com/linkorb/repo-ansible. Manual changes will be overwritten.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "demo-symfony-app.fullname" . }}
+  name: {{ include "[[ repo.name ]].fullname" . }}
   labels:
-    {{- include "demo-symfony-app.labels" . | nindent 4 }}
+    {{- include "[[ repo.name ]].labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 100%
+      maxUnavailable: 75%
   selector:
     matchLabels:
-      {{- include "demo-symfony-app.selectorLabels" . | nindent 6 }}
+      {{- include "[[ repo.name ]].selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +23,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "demo-symfony-app.selectorLabels" . | nindent 8 }}
+        {{- include "[[ repo.name ]].selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "demo-symfony-app.serviceAccountName" . }}
+      serviceAccountName: {{ include "[[ repo.name ]].serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -36,8 +41,8 @@ spec:
           volumeMounts:
           - name: envvars
             readOnly: false
-            mountPath: /app/.env
-            subPath: ".env"
+            mountPath: /app/.env.local
+            subPath: ".env.local"
           ports:
             - name: http
               containerPort: 80
@@ -46,7 +51,6 @@ spec:
             httpGet:
               path: /
               port: http
-            failureThreshold: 100
           readinessProbe:
             httpGet:
               path: /
@@ -58,8 +62,8 @@ spec:
           configMap:
             name: envvars
             items:
-            - key: .env
-              path: .env
+            - key: .env.local
+              path: .env.local
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
