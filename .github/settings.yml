@@ -1,3 +1,4 @@
+# Managed by https://github.com/linkorb/repo-ansible. Manual changes will be overwritten.
 # These settings are synced to GitHub by https://probot.github.io/apps/settings/
 # See https://docs.github.com/en/rest/reference/repos#update-a-repository for all available settings.
 
@@ -15,7 +16,7 @@ repository:
     # A comma-separated list of topics to set on the repository
   topics: ["symfony-6", "linkorb"]
   
-  
+    
   # Either `true` to make the repository private, or `false` to make it public.
   private: true
 
