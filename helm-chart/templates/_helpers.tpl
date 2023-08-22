@@ -1,7 +1,10 @@
 {{/*
+Managed by https://github.com/linkorb/repo-ansible. Manual changes will be overwritten.
+*/}}
+{{/*
 Expand the name of the chart.
 */}}
-{{- define "demo-symfony-app.name" -}}
+{{- define "[[ repo.name ]].name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +13,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "demo-symfony-app.fullname" -}}
+{{- define "[[ repo.name ]].fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +29,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "demo-symfony-app.chart" -}}
+{{- define "[[ repo.name ]].chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "demo-symfony-app.labels" -}}
-helm.sh/chart: {{ include "demo-symfony-app.chart" . }}
-{{ include "demo-symfony-app.selectorLabels" . }}
+{{- define "[[ repo.name ]].labels" -}}
+helm.sh/chart: {{ include "[[ repo.name ]].chart" . }}
+{{ include "[[ repo.name ]].selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +48,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "demo-symfony-app.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "demo-symfony-app.name" . }}
+{{- define "[[ repo.name ]].selectorLabels" -}}
+app.kubernetes.io/name: {{ include "[[ repo.name ]].name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "demo-symfony-app.serviceAccountName" -}}
+{{- define "[[ repo.name ]].serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "demo-symfony-app.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "[[ repo.name ]].fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
